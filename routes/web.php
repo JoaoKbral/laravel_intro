@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CaculatorController;
+use App\Http\Controllers\UserController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +19,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//padrão rest ???
+
+Route::get('calculator', [CaculatorController::class, 'calculatorPage']);
+
+Route::post('sum', [CalculatorController::class, 'sum']); 
+
+Route::get('users', [UserController::class, 'index'])->name('users.index');
+Route::get('users/create', [UserController::class, 'create'])->name('users.create');
+Route::post('users', [UserController::class, 'store'])->name('users.store');
